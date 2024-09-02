@@ -26,11 +26,13 @@ public class LinkedListDeque<Any> {
 
     public void addFirst(Any item) {
         sentinel.next = new Node(item, sentinel, sentinel.next);
+        sentinel.next.next.pre = sentinel.next;
         size++;
     }
 
     public void addLast(Any item) {
-        sentinel.pre = new Node(item, sentinel.next, sentinel);
+        sentinel.pre = new Node(item, sentinel.pre, sentinel);
+        sentinel.pre.pre.next = sentinel.pre;
         size++;
     }
 
